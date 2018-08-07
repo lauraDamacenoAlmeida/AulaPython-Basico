@@ -18,9 +18,12 @@ def listar(nomes):
 def alterar(nomes):
     print 'Digite o nome que deseja alterar'
     nome_alterar = raw_input()
-
+# para percorrer o vetor e se encontrar o nome cai dentro da condicao
     if(nome_alterar in nomes):
-        print 'Digite o nome'
+        posicao = nomes.index(nome_alterar)
+        print 'Digite o novo nome'
+        nome_novo = raw_input()
+        nomes[posicao] = nome_novo
         
 def menu():
     nomes = []
@@ -42,8 +45,6 @@ def menu():
         if(escolha == '4'):
             alterar(nomes)
 
-        else: 
-            print 'Opção inválida, favor digitar um opção valida'
 
 menu()
 # Para compilar só digitar no console do from app import * depois selecionar a função
