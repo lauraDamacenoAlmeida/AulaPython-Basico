@@ -8,12 +8,14 @@ def gera_nome(convite):
     return part1 + ' ' + part2
 
 def envia_conv(nome):
-    return 'Enviando convite para ' + nome
+    return 'Enviando convite para %s' % (nome)
 
 def processa_convite(convite):
     nome = gera_nome(convite)
     return envia_conv(nome)
-    
+
+
+
     
 
 
