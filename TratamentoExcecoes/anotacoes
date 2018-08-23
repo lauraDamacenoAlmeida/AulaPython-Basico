@@ -1,0 +1,29 @@
+Erros(IOError) podem gerar de varios jeitos, como por exemplo:
+Procurar um arq inexistente
+pode ser erro na sintaxe
+**exibir mensagem legal para o usuário
+as===informação da causa do erro
+try:
+    codigo que pode gerar um possivel erro
+    open('arq inexistente', 'r')
+    arq.close()
+
+except IOError as erro:
+    print('Erro tratado %s' % erro)
+bloco irá executar obrigatoriamente, mesmo se o erro ocorrer ou não
+finally: 
+    print('Fechando arquivo')
+    arq.close()
+
+Raise ValueError => erros nos valores
+TypeError => passo a quant de argumentos menores que o desejado
+
+Quando arquivos não existem recebemos erros do tipo 1
+Erros do tipo 2 ocorre quando não identamos nosso codigo corretamente (IndentationError)
+
+Sintaxe Error - ocorre quando o Python tenta interpretar o código a ser executado, detectando algo que fere sua sintaxe.
+
+Exception - pode ocorrer no programa em execução, mesmo que sua sintaxe esteja correta. 
+Um exemplo é o caso de abertura de arquivo. 
+A sintaxe pode estar correta, mas quando o arquivo for aberto, ele pode não existir gerando uma exceção.
+

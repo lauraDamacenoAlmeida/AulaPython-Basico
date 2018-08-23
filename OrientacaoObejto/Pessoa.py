@@ -9,3 +9,4 @@ class Pessoa():
     def calcularIMC(self):
         IMC = self.peso / (self.altura * self.altura)
         print 'IMC do %s é: %s' % (self.nome, IMC)
+

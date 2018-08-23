@@ -1,0 +1,47 @@
+para abrir um arquivo é só colocar
+arq = open("nomedoarqui.csv", 'r')
+r = read => Leitura
+linha = arq.readLine() => le uma linha de cada vez
+for linha in arq:
+    print linha
+
+arq.close()
+
+Agora para escrita:
+arq = open("novo.csv",'w')
+w  para escrita
+se não tiver um arq com esse nome o python cria um novo
+arq.write('Laura, 55555, 18, Fcamara \n')
+importante fechar sempre o arq depois de utiliza-lo para liberar seu acesso
+arq.close()
+
+A flag a adiciona o conteúdo no final do arquivo, enquanto a w sempre começa no início:
+
+a - acrescenta no final do arquivo
+
+w - sempre escreve no inicio do arquivo, conteúdo existente será apagado
+
+Você também pode imprimir a flag (mode) de um arquivo em uso:
+
+arquivo = open('teste.txt', 'w')
+arquivo.write('Python rocks \n')
+print arquivo.mode
+arquivo.close()
+
+Arquivos binários:
+O código é praticamente idêntico aos exemplos anteriores. A única coisa que muda é o flag. 
+Agora estamos usando rb para leitura binária e wb para escrita binária.
+
+VER Arquivo models na pasta OrientacaoObjeto
+
+O nosso método vai criar apenas perfis padrão, pois já usamos o construtor da classe Perfil. Podemos criar um outro método na classe Perfil_Vip só que não queremos repetir código. Para resolver isso foi criado um outro decorador @classmethod que recebe sempre a classe que está sendo utilizada como primeiro parâmetro:
+
+   @classmethod
+   def gerar_perfis(classe, nome_arquivo):
+       arquivo = open(nome_arquivo,'r')
+       perfis = []
+       for linha in arquivo:
+         valores = linha.split(',')
+         perfis.append(classe(*valores))
+       arquivo.close()
+       return perfis
